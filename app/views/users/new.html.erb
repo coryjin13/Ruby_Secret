@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+</head>
+<body>
+	<div class="error_messages" style="color:red;">
+		<ul>
+		<% if flash[:error_messages] %>
+			<% flash[:error_messages].each do |error| %>
+				<li><%= error %></li>
+			<% end %>
+		<% end %>
+		</ul>
+	</div>
+	<h1>Register</h1>
+	<div class="Register">
+			<form action="/users" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<p>Name: <input id='name' type='text' name='user[name]'><br></p>
+			<p>Email: <input id='email' type='text' name='user[email]'><br></p>
+			<p>Password: <input id='password' type='password' name='user[password]'><br></p>
+			<p>Confirm Password: <input id='password_confirmation' type='password' name='user[password_confirmation]'><br></p>
+			<p><input type="submit" value="Register"></p>
+		</form>
+	</div>
+	<a href="/sessions/new">Already a member? Log in here</a>
+</body>
+</html>

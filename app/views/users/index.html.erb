@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shhhh Secret</title>
+	<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+	<div class="container">
+		<div class="home_header">
+			<h1>Can you keep a secret???</h1>
+		</div>
+		<div class="options">
+			<form action='/sessions/new' method='get'>
+				<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+				<button type='submit' value='Yes' style="background-color:green;">Yes....</button>
+			</form>
+			<form action="http://www.wikihow.com/Keep-a-Secret?" method='get'>
+				<button type='submit' value='No' style="background-color:red;">No</button>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>

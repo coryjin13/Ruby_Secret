@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Profile</title>
+</head>
+<body>
+	<h1>Edit Profile</h1>
+	<div class="product_form">
+		<form action="/users/<%= @user.id %>" method="post">
+			<input type="hidden" name="_method" value="patch">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<p>Name: <input type="text" name="user[name]" value="<%= @user.name %>"></p>
+			<p>Email: <input type="email" name="user[email]" value="<%= @user.email %>"></p>
+			<input type="submit" value="Update">
+		</form>
+	</div>
+	<p><a href="/users/<%= @user.id %>">Back</a></p>
+	<form action="/users/<%= @user.id %>" method="post">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<input name="_method" type="hidden" value="delete">
+		<input type="submit" value="Delete Account">
+	</form>
+	<!-- <a href= "/users/<%= @user.id %>" data-method='delete' data-confirm="Are you sure you want to delete?">Delete Account</a> -->
+
+
+</body>
+</html>
